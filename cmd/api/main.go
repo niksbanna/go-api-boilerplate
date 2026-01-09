@@ -51,6 +51,8 @@ func main() {
 	// Middleware
 	app.Use(recover.New())
 	app.Use(logger.New())
+	// CORS configuration - adjust for production use
+	// For production, replace "*" with specific allowed origins
 	app.Use(cors.New(cors.Config{
 		AllowOrigins: "*",
 		AllowMethods: "GET,POST,PUT,DELETE,OPTIONS",

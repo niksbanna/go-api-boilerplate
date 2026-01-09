@@ -32,8 +32,10 @@ func (h *UserHandler) CreateUser(c *fiber.Ctx) error {
 
 	user, err := h.userService.CreateUser(c.Context(), &req)
 	if err != nil {
+		// Log detailed error for debugging
+		// In production, use a proper logging library
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-			"error": err.Error(),
+			"error": "Failed to create user",
 		})
 	}
 
@@ -51,8 +53,9 @@ func (h *UserHandler) GetUser(c *fiber.Ctx) error {
 
 	user, err := h.userService.GetUserByID(c.Context(), id)
 	if err != nil {
+		// Could differentiate between not found and other errors
 		return c.Status(fiber.StatusNotFound).JSON(fiber.Map{
-			"error": err.Error(),
+			"error": "User not found",
 		})
 	}
 
@@ -64,7 +67,7 @@ func (h *UserHandler) GetAllUsers(c *fiber.Ctx) error {
 	users, err := h.userService.GetAllUsers(c.Context())
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-			"error": err.Error(),
+			"error": "Failed to retrieve users",
 		})
 	}
 
@@ -90,7 +93,7 @@ func (h *UserHandler) UpdateUser(c *fiber.Ctx) error {
 	user, err := h.userService.UpdateUser(c.Context(), id, &req)
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-			"error": err.Error(),
+			"error": "Failed to update user",
 		})
 	}
 
@@ -108,7 +111,7 @@ func (h *UserHandler) DeleteUser(c *fiber.Ctx) error {
 
 	if err := h.userService.DeleteUser(c.Context(), id); err != nil {
 		return c.Status(fiber.StatusNotFound).JSON(fiber.Map{
-			"error": err.Error(),
+			"error": "User not found",
 		})
 	}
 

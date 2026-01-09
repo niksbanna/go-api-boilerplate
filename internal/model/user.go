@@ -13,8 +13,8 @@ type User struct {
 
 // CreateUserRequest represents the request body for creating a user
 type CreateUserRequest struct {
-	Name  string `json:"name" validate:"required"`
-	Email string `json:"email" validate:"required,email"`
+	Name  string `json:"name"`
+	Email string `json:"email"`
 }
 
 // UpdateUserRequest represents the request body for updating a user
