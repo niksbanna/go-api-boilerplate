@@ -1,0 +1,106 @@
+{
+	"info": {
+		"name": "Go API Boilerplate",
+		"description": "API collection for Go API Boilerplate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/health",
+					"host": ["{{base_url}}"],
+					"path": ["health"]
+				}
+			}
+		},
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/users",
+					"host": ["{{base_url}}"],
+					"path": ["api", "v1", "users"]
+				}
+			}
+		},
+		{
+			"name": "Get User by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/users/1",
+					"host": ["{{base_url}}"],
+					"path": ["api", "v1", "users", "1"]
+				}
+			}
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/users",
+					"host": ["{{base_url}}"],
+					"path": ["api", "v1", "users"]
+				}
+			}
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Jane Doe\",\n  \"email\": \"jane@example.com\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/users/1",
+					"host": ["{{base_url}}"],
+					"path": ["api", "v1", "users", "1"]
+				}
+			}
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/users/1",
+					"host": ["{{base_url}}"],
+					"path": ["api", "v1", "users", "1"]
+				}
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
