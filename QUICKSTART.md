@@ -4,7 +4,7 @@ Get the Go API Boilerplate up and running in minutes!
 
 ## Prerequisites
 
-- [Go 1.21+](https://golang.org/doc/install)
+- [Go 1.22+](https://golang.org/doc/install)
 - [PostgreSQL 12+](https://www.postgresql.org/download/)
 - [Docker](https://docs.docker.com/get-docker/) (optional, for containerized setup)
 - [golang-migrate](https://github.com/golang-migrate/migrate) (for migrations)

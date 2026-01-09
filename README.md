@@ -54,7 +54,7 @@ A production-grade boilerplate for building RESTful APIs in Go using the [Fiber]
 
 ## Prerequisites
 
-- Go 1.21 or higher
+- Go 1.22 or higher
 - PostgreSQL 12 or higher
 - golang-migrate (for database migrations)
 
