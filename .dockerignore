@@ -1,0 +1,38 @@
+# Git
+.git
+.gitignore
+
+# Environment
+.env
+
+# Build artifacts
+bin/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test files
+*.test
+*.out
+coverage.out
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp
+tmp/
+*.tmp
+*.log
+
+# Documentation
+README.md
+docs/
