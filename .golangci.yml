@@ -23,7 +23,8 @@ linters-settings:
   errcheck:
     check-blank: true
   govet:
-    check-shadowing: true
+    enable:
+      - shadow
   revive:
     rules:
       - name: var-naming

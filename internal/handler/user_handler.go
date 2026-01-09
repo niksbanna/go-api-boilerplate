@@ -84,7 +84,7 @@ func (h *UserHandler) UpdateUser(c *fiber.Ctx) error {
 	}
 
 	var req model.UpdateUserRequest
-	if err := c.BodyParser(&req); err != nil {
+	if parseErr := c.BodyParser(&req); parseErr != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 			"error": "Invalid request body",
 		})

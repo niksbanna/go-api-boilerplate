@@ -88,19 +88,20 @@ func (r *userRepository) GetAll(ctx context.Context) ([]*model.User, error) {
 	if err != nil {
 		return nil, fmt.Errorf("failed to get users: %w", err)
 	}
-	defer rows.Close()
+	defer func() {
+		_ = rows.Close() //nolint:errcheck
+	}()
 
 	var users []*model.User
 	for rows.Next() {
 		user := &model.User{}
-		err := rows.Scan(
+		if err := rows.Scan(
 			&user.ID,
 			&user.Name,
 			&user.Email,
 			&user.CreatedAt,
 			&user.UpdatedAt,
-		)
-		if err != nil {
+		); err != nil {
 			return nil, fmt.Errorf("failed to scan user: %w", err)
 		}
 		users = append(users, user)

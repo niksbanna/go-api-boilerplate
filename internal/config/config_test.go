@@ -23,11 +23,15 @@ func TestLoad(t *testing.T) {
 
 func TestLoadWithEnv(t *testing.T) {
 	// Set environment variables
-	os.Setenv("SERVER_PORT", "8080")
-	os.Setenv("SERVER_HOST", "localhost")
+	if err := os.Setenv("SERVER_PORT", "8080"); err != nil {
+		t.Fatalf("Failed to set SERVER_PORT: %v", err)
+	}
+	if err := os.Setenv("SERVER_HOST", "localhost"); err != nil {
+		t.Fatalf("Failed to set SERVER_HOST: %v", err)
+	}
 	defer func() {
-		os.Unsetenv("SERVER_PORT")
-		os.Unsetenv("SERVER_HOST")
+		_ = os.Unsetenv("SERVER_PORT") //nolint:errcheck
+		_ = os.Unsetenv("SERVER_HOST") //nolint:errcheck
 	}()
 
 	config, err := Load()

@@ -34,7 +34,8 @@ type DatabaseConfig struct {
 // Load reads configuration from environment variables
 func Load() (*Config, error) {
 	// Load .env file if it exists (optional in production)
-	_ = godotenv.Load()
+	// Ignore error as .env file is optional
+	_ = godotenv.Load() // nolint:errcheck
 
 	config := &Config{
 		Server: ServerConfig{
